@@ -1,5 +1,6 @@
 package Datos;
 
+// Clase Cliente en la que se pediran los datos
 public class cliente {
 	
 	private String cedula;
