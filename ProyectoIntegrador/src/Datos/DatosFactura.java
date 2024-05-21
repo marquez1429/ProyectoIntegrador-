@@ -15,7 +15,7 @@ import java.util.List;
 public class DatosFactura {
     private static final String URL = "jdbc:oracle:thin:@localhost:1521:orcl";
     private static final String USER = "";
-    private static final String PASSWORD = "INNOVATECH";
+    private static final String PASSWORD = "";
 
     public LinkedList<factura> getDatos() {
         LinkedList<factura> data = new LinkedList<>();
@@ -41,7 +41,7 @@ public class DatosFactura {
     }
 
     public void guardarFactura(factura factura) {
-        String sql = "INSERT INTO FACTURA (id, cedulaCliente, cedulaVendedor, fecha, subtotal, iva) VALUES (?, ?, ?, ?, ?,?)";
+        String sql = "INSERT INTO FACTURA (id, cedulaCliente, cedulaVendedor, fecha, subtotal, iva) VALUES (?, ?, ?, ?, ?)";
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -60,7 +60,7 @@ public class DatosFactura {
     
     }
 
-    public void eliminarProducto(String referencia) {
+    public void eliminarFactura(String referencia) {
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement st = conn.prepareStatement("DELETE FROM FACTURA WHERE referencia = ?")) {
 
