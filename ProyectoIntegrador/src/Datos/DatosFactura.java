@@ -24,7 +24,7 @@ public class DatosFactura {
              ResultSet result = st.executeQuery()) {
 
             while (result.next()) {
-                Factura factura = new factura(
+                factura factura = new factura(
                         result.getString("id"),
                         result.getString("cedulaCliente"),
                         result.getString("cedulaVendedor"),
