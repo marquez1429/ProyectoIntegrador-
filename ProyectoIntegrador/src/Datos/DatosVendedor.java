@@ -27,7 +27,7 @@ public class DatosVendedor {
                         result.getString("direccion"),
                         result.getString("comision"),
                         result.getString("usuario"),
-                        result.getString("contraseña"),
+                        result.getString("contrasena"),
                         result.getString("nivelAcceso")
                 );
                 data.add(vendedor);
@@ -39,7 +39,7 @@ public class DatosVendedor {
     }
 
     public void guardarVendedor(vendedor vendedor) {
-        String sql = "INSERT INTO VENDEDOR (cedula, nombre, apellido, email, direccion, comision, usuario, contraseña, nivelAcesso) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO VENDEDOR (cedula, nombre, apellido, email, direccion, comision, usuario, contrasena, nivelAcesso) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -50,7 +50,7 @@ public class DatosVendedor {
             pstmt.setString(5, vendedor.getDireccion());
             pstmt.setString(6, vendedor.getComision());
             pstmt.setString(7, vendedor.getUsuario());
-            pstmt.setString(8, vendedor.getContraseña());
+            pstmt.setString(8, vendedor.getContrasena());
             pstmt.setString(9, vendedor.getNivelAcceso());
             
             pstmt.executeUpdate();
@@ -73,7 +73,7 @@ public class DatosVendedor {
     }
 
     public void actualizarVendedor(vendedor vendedor) {
-        String sql = "UPDATE CLIENTE SET nombre = ?, apellido = ?, email = ?, direccion = ?, comision = ?, usuario = ?, contraseña = ?, nivelAcceso = ? WHERE cedula = ?";
+        String sql = "UPDATE CLIENTE SET nombre = ?, apellido = ?, email = ?, direccion = ?, comision = ?, usuario = ?, contrasena = ?, nivelAcceso = ? WHERE cedula = ?";
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -85,7 +85,7 @@ public class DatosVendedor {
             pstmt.setString(5, vendedor.getDireccion());
             pstmt.setString(6, vendedor.getComision());
             pstmt.setString(7, vendedor.getUsuario());
-            pstmt.setString(8, vendedor.getContraseña());
+            pstmt.setString(8, vendedor.getContrasena());
             pstmt.setString(9, vendedor.getNivelAcceso());
 
             pstmt.executeUpdate();
@@ -93,5 +93,24 @@ public class DatosVendedor {
         } catch (SQLException e) {
             System.out.println("Error al actualizar el vendedor en la base de datos: " + e.getMessage());
         }
+         
+    }
+    public boolean validarVendedor(String usuario, String contrasena) {
+        String sql = "SELECT * FROM vendedor WHERE usuario = ? AND contraseña = ?";
+
+        try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+             PreparedStatement pstmt = conn.prepareStatement(sql)) {
+
+            pstmt.setString(1, usuario);
+            pstmt.setString(2, contrasena);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    return true;
+                }
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al validar el usuario en la base de datos: " + e.getMessage());
+        }
+        return false;
     }
 }

@@ -9,10 +9,10 @@ public class vendedor {
 	private String direccion;
 	private String comision;
 	private String usuario;
-	private String contraseña;
+	private String contrasena;
 	private String nivelAcceso;
 	
-	public vendedor(String cedula, String nombre, String apellido, String email, String direccion, String comision, String usuario, String contraseña, String nivelAcceso) {
+	public vendedor(String cedula, String nombre, String apellido, String email, String direccion, String comision, String usuario, String contrasena, String nivelAcceso) {
 
 		this.cedula=cedula;
 		this.nombre=nombre;
@@ -21,8 +21,7 @@ public class vendedor {
 		this.direccion=direccion;
 		this.comision=comision;
 		this.usuario=usuario;
-		this.usuario=usuario;
-		this.contraseña=contraseña;
+		this.contrasena=contrasena;
 		this.nivelAcceso=nivelAcceso;
 		
 		
@@ -84,12 +83,12 @@ public class vendedor {
 		this.usuario = usuario;
 	}
 
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasena() {
+		return contrasena;
 	}
 
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
 	}
 
 	public String getNivelAcceso() {

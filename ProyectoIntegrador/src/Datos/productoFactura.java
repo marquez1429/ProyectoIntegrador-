@@ -4,12 +4,16 @@ public class productoFactura {
 	
 	private String idProducto;
 	private String idFactura;
+	private String cantidadVendida;
 
 	
-	public productoFactura (String idProducto, String idFactura) {
+	public productoFactura (String idProducto, String idFactura, String cantidadVendida) {
 		
 		this.idProducto=idProducto;
 		this.idFactura=idFactura;
+		this.cantidadVendida=cantidadVendida;
+		
+		
 		
 	}
 
@@ -31,6 +35,14 @@ public class productoFactura {
 
 	public void setIdFactura(String idFactura) {
 		this.idFactura = idFactura;
+	}
+	
+	public String getCantidadVendida() {
+		return cantidadVendida;
+	}
+	
+	public void setCantidadVendida(String cantidadVendida) {
+		this.cantidadVendida = cantidadVendida;
 	}
 
 }	
