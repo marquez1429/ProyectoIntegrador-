@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #E1E115;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.ReportesVistaController">
+   <children>
+      <PieChart fx:id="pieChart" layoutX="14.0" layoutY="14.0" prefHeight="200.0" prefWidth="372.0" />
+      <BarChart fx:id="barChart" layoutX="14.0" layoutY="234.0" prefHeight="200.0" prefWidth="372.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <LineChart fx:id="lineChart" layoutX="14.0" layoutY="454.0" prefHeight="200.0" prefWidth="372.0">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </LineChart>
+      <Button fx:id="buttonGenerarReporte" layoutX="408.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#generarReporte" style="-fx-background-color: #e49800;" text="Generar Reporte" />
+   </children>
+</AnchorPane>

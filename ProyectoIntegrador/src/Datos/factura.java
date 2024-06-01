@@ -1,5 +1,6 @@
-package Datos;
 
+
+package Datos;
 public class factura {
 	
 	private String id;
@@ -50,7 +51,6 @@ public class factura {
 	public void setFecha(String fecha) {
 		this.fecha = fecha;
 	}
-
 	public String getSubtotal() {
 		return subtotal;
 	}

@@ -8,14 +8,14 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 
 public class DatosFactura {
-    private static final String URL = "jdbc:oracle:thin:@localhost:1521:orcl";
+    private static final String URL = "jdbc:oracle:thin:@localhost";
     private static final String USER = "tornillitos2";
     private static final String PASSWORD = "tornillitos2";
 
     public LinkedList<factura> getDatos() {
         LinkedList<factura> data = new LinkedList<>();
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
-             PreparedStatement st = conn.prepareStatement("SELECT * FROM CLIENTE");
+             PreparedStatement st = conn.prepareStatement("SELECT * FROM FACTURA");
              ResultSet result = st.executeQuery()) {
         
             while (result.next()) {
@@ -35,7 +35,7 @@ public class DatosFactura {
         return data;
     }
 
-    public void guardaCliente(factura factura) {
+    public void guardaFactura(factura factura) {
         String sql = "INSERT INTO FACTURA (id, cedulaCliente, cedulaVendedor, fecha, subtotal, iva) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
@@ -48,7 +48,7 @@ public class DatosFactura {
             pstmt.setString(5, factura.getIva());
             
             pstmt.executeUpdate();
-            System.out.println("Factura guardado correctamente en la base de datos.");
+            System.out.println("Factura guardada correctamente en la base de datos.");
         } catch (SQLException e) {
             System.out.println("Error al guardar el Factura en la base de datos: " + e.getMessage());
         }

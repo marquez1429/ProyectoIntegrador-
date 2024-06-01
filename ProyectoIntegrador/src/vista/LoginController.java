@@ -5,15 +5,16 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import java.io.IOException;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.io.IOException;
 import Datos.DatosVendedor;
 
 public class LoginController {
-
     @FXML
     private Label bienvenidoid;
     @FXML
@@ -21,29 +22,31 @@ public class LoginController {
     @FXML
     private TextField idusuario;
     @FXML
-    private TextField idcontraseña;
+    private TextField idcontrasena;
 
     @FXML
-    public void clickAcceder(MouseEvent event) {
+    void clickAcceder(MouseEvent event) {
         String usuario = idusuario.getText();
-        String contrasena = idcontraseña.getText();
+        String contrasena = idcontrasena.getText();
         DatosVendedor datosVendedor = new DatosVendedor();
 
         if (datosVendedor.validarVendedor(usuario, contrasena)) {
-            // Cargar la siguiente ventana
             try {
-                Parent root = FXMLLoader.load(getClass().getResource("facturavista.fxml"));
-                Stage stage = new Stage();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("MenuOpciones.fxml"));
+                Parent root = loader.load();
+                Stage stage = (Stage) botonacceder.getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.show();
-                // Cerrar la ventana actual
-                Stage currentStage = (Stage) botonacceder.getScene().getWindow();
-                currentStage.close();
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
-            bienvenidoid.setText("Usuario o contraseña incorrectos");
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error de Autenticación");
+            alert.setHeaderText(null);
+            alert.setContentText("Usuario o contraseña incorrectos");
+            alert.showAndWait();
         }
     }
 }
+

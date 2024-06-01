@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.LinkedList;
 
 public class DatosVendedor {
-    private static final String URL = "jdbc:oracle:thin:@localhost:1521:orcl";
+    private static final String URL = "jdbc:oracle:thin:@localhost";
     private static final String USER = "tornillitos2";
     private static final String PASSWORD = "tornillitos2";
     
@@ -96,7 +96,7 @@ public class DatosVendedor {
          
     }
     public boolean validarVendedor(String usuario, String contrasena) {
-        String sql = "SELECT * FROM vendedor WHERE usuario = ? AND contraseña = ?";
+        String sql = "SELECT * FROM vendedor WHERE usuario = ? AND contrasena = ?";
 
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
@@ -105,7 +105,10 @@ public class DatosVendedor {
             pstmt.setString(2, contrasena);
             try (ResultSet rs = pstmt.executeQuery()) {
                 if (rs.next()) {
+                    System.out.println("Credenciales válidas.");
                     return true;
+                } else {
+                    System.out.println("Credenciales inválidas.");
                 }
             }
         } catch (SQLException e) {
