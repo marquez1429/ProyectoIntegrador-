@@ -9,26 +9,26 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="427.0" prefWidth="611.0" style="-fx-background-color: #E1E115;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vista.FacturaVistaController">
    <children>
-      <TableView layoutX="-2.0" prefHeight="295.0" prefWidth="617.0" style="-fx-background-color: #E1E115;">
+      <TableView fx:id="idTabla" layoutX="-2.0" prefHeight="295.0" prefWidth="617.0" style="-fx-background-color: #E1E115;">
          <columns>
-            <TableColumn fx:id="ColumnIdFactura" prefWidth="59.0" style="-fx-background-color: #e49800;" text="ID" />
-            <TableColumn fx:id="cedulaclienteid" prefWidth="118.0" style="-fx-background-color: #e49800;" text="CEDULA CLIENTE" />
-            <TableColumn fx:id="ColumnIva" prefWidth="120.0" style="-fx-background-color: #e49800;" text="CEDULA VENDEDOR" />
-            <TableColumn fx:id="ColumnReferenciaProducto" prefWidth="75.0" style="-fx-background-color: #e49800;" text="FECHA" />
-            <TableColumn fx:id="subtotalid" prefWidth="116.0" style="-fx-background-color: #e49800;" text="SUBTOTAL" />
-            <TableColumn fx:id="ivaid" prefWidth="135.0" style="-fx-background-color: #e49800;" text="IVA" />
+            <TableColumn fx:id="idColum" prefWidth="59.0" style="-fx-background-color: #e49800;" text="ID" />
+            <TableColumn fx:id="idColumnCedulaCliente" prefWidth="118.0" style="-fx-background-color: #e49800;" text="CEDULA CLIENTE" />
+            <TableColumn fx:id="idCedulaVendedor" prefWidth="120.0" style="-fx-background-color: #e49800;" text="CEDULA VENDEDOR" />
+            <TableColumn fx:id="idColumnFecha" prefWidth="75.0" style="-fx-background-color: #e49800;" text="FECHA" />
+            <TableColumn fx:id="idColumnSubtotal" prefWidth="116.0" style="-fx-background-color: #e49800;" text="SUBTOTAL" />
+            <TableColumn fx:id="idColumnIva" prefWidth="135.0" style="-fx-background-color: #e49800;" text="IVA" />
          </columns>
       </TableView>
       <TextField fx:id="textIdFactura" layoutX="85.0" layoutY="306.0" prefHeight="25.0" prefWidth="109.0" />
       <Text layoutX="29.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" />
       <Text layoutX="215.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CEDULA CLIENTE" />
-      <TextField fx:id="textSubtotal" layoutX="310.0" layoutY="306.0" prefHeight="25.0" prefWidth="94.0" />
-      <TextField fx:id="textIva" layoutX="85.0" layoutY="341.0" prefHeight="25.0" prefWidth="109.0" />
+      <TextField fx:id="textIdCedulaCliente" layoutX="310.0" layoutY="306.0" prefHeight="25.0" prefWidth="94.0" />
+      <TextField fx:id="textIdFecha" layoutX="85.0" layoutY="341.0" prefHeight="25.0" prefWidth="109.0" />
       <Text layoutX="29.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="FECHA" />
       <Text layoutX="218.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SUBTOTAL" wrappingWidth="108.90234375" />
-      <TextField fx:id="textReferenciaProducto" layoutX="327.0" layoutY="341.0" prefHeight="25.0" prefWidth="94.0" />
+      <TextField fx:id="textIdSubtotal" layoutX="310.0" layoutY="341.0" prefHeight="25.0" prefWidth="94.0" />
       <Text layoutX="405.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CEDULA VENDEDOR" />
-      <TextField fx:id="textIdUsuario" layoutX="513.0" layoutY="306.0" prefHeight="25.0" prefWidth="94.0" />
+      <TextField fx:id="textidCedulaVendedor" layoutX="513.0" layoutY="306.0" prefHeight="25.0" prefWidth="94.0" />
       <Text layoutX="436.0" layoutY="358.0" strokeType="OUTSIDE" strokeWidth="0.0" text="IVA" />
       <TextField fx:id="textIdVenta" layoutX="503.0" layoutY="349.0" prefHeight="25.0" prefWidth="94.0" />
       <Button fx:id="buttonCrear" layoutX="327.0" layoutY="382.0" mnemonicParsing="false" onMouseClicked="#clickCrear" style="-fx-background-color: #e49800;" text="Crear" />

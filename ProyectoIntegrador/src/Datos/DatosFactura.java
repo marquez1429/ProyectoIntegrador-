@@ -35,9 +35,9 @@ public class DatosFactura {
         return data;
     }
 
-    public void guardaFactura(factura factura) {
-        String sql = "INSERT INTO FACTURA (id, cedulaCliente, cedulaVendedor, fecha, subtotal, iva) VALUES (?, ?, ?, ?, ?, ?)";
-
+    public boolean guardaFactura(factura factura) {
+        String sql = "INSERT INTO FACTURA  VALUES (?, ?, ?, sysdate, ?, ?)";
+        boolean añadirfactura = false;
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
             pstmt.setString(1, factura.getId());
@@ -46,12 +46,14 @@ public class DatosFactura {
             pstmt.setString(4, factura.getFecha());
             pstmt.setString(5, factura.getSubtotal());
             pstmt.setString(5, factura.getIva());
+            añadirfactura = true;
             
             pstmt.executeUpdate();
             System.out.println("Factura guardada correctamente en la base de datos.");
         } catch (SQLException e) {
             System.out.println("Error al guardar el Factura en la base de datos: " + e.getMessage());
         }
+		return añadirfactura;
     
     }
 
@@ -66,9 +68,9 @@ public class DatosFactura {
         }
     }
 
-    public void actualizarFactura(factura factura) {
+    public boolean actualizarFactura(factura factura) {
         String sql = "UPDATE FACTURA SET id = ?, cedulaCliente = ?, cedulaVendedor = ?, fecha = ?, subtotal = ?, iva = ?,  WHERE id = ?";
-
+        boolean updatefactura = false;
         try (Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
@@ -78,11 +80,15 @@ public class DatosFactura {
             pstmt.setString(4, factura.getFecha());
             pstmt.setString(5, factura.getSubtotal());
             pstmt.setString(6, factura.getIva());
+            updatefactura = false;
 
             pstmt.executeUpdate();
             System.out.println("Factura actualizada correctamente en la base de datos.");
         } catch (SQLException e) {
             System.out.println("Error al actualizar la factura en la base de datos: " + e.getMessage());
         }
+		return updatefactura;
     }
+    
+    
 }

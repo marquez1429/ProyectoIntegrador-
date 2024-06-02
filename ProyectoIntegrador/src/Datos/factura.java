@@ -67,4 +67,15 @@ public class factura {
 		this.iva = iva;
 	}
 
+	public static void clear() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void add(factura factura) {
+		
+		// TODO Auto-generated method stub
+		
+	}
+
 }
