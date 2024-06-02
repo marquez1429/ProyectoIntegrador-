@@ -36,7 +36,7 @@ public class MenuOpcionesController {
 
     @FXML
     private void botonOpCRUD(MouseEvent event) {
-        abrirVentana("CRUDVista.fxml", "Operaciones CRUD");
+        abrirVentana("MenuCrud.fxml", "Operaciones CRUD");
     }
 
     @FXML

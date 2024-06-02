@@ -30,9 +30,9 @@ public class ReportesVistaController {
     private Button buttonGenerarReporte;
 
     private Connection connect() {
-        String url = "jdbc:oracle:thin:@localhost";
-        String user = "pasabocasAntojitos";
-        String password = "pasabocasAntojitos";
+        String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+        String user = "tornillitos2";
+        String password = "tornillitos2";
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, user, password);

@@ -120,7 +120,7 @@ public class FacturaVistaController {
         // Método de conexión a la base de datos
         try {
             // Ajusta la URL, el usuario y la contraseña según tu configuración
-            String url = "jdbc:oracle:thin:@localhost";
+            String url = "jdbc:oracle:thin:@localhost:1521:orcl";
             String user = "tornillitos2";
             String password = "tornillitos2";
             return DriverManager.getConnection(url, user, password);
